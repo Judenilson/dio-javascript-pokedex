@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Pokedex-Detail</title>
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/pokedex-detail.css">
+</head>
+
+<body>
+    <section class="content">
+        <div class="top">
+            <div class="back">
+                <button id="backButton" type="button" onclick="history.go(-1)">🡨 <span>voltar</span></button>
+            </div>
+
+            <div class="pokemon">
+                <h1 class="name">Bulbassaur</h1>
+                <span class="number">#001</span>
+                <div class="detail">
+                    <ol class="types">
+                        <li class="type grass">grass</li>
+                        <li class="type fire">fire</li>
+                        <li class="type water">water</li>
+                    </ol>
+                    <img src="./assets/img/pokeball.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="detailsButtons">                
+                <button id="aboutButton" type="button">About</button>
+                <button id="baseButton" type="button">Base Stats</button>
+                <button id="evolutionButton" type="button">Evolution</button>
+                <button id="movesButton" type="button">Moves</button>
+            </div>
+            <hr>
+            <div id="about" class="detailsContainer">
+                <ul class="detailList">
+                    <li class="detailData"><label class="detaillabel">Height</label><label class="detailValue">0.200 cm</label></li>                    
+                    <li class="detailData"><label class="detaillabel">Weight</label><label class="detailValue">1.00 kg</label></li>                    
+                    <li class="detailData"><label class="detaillabel">Abilities</label><label class="detailValue">overgrow, chlorophyll</label></li>
+                </ul>
+            </div>
+            <div id="base" class="detailsContainer">
+                <ul class="detailList">
+                    <li class="detailData"><label class="detaillabel">HP</label><label class="detailValue">45</label><div id="hpBar" class="backgroundBar"></div></li>
+                    <li class="detailData"><label class="detaillabel">Attack</label><label class="detailValue">49</label><div id="atkBar" class="backgroundBar"></div></li>
+                    <li class="detailData"><label class="detaillabel">Defense</label><label class="detailValue">49</label><div id="defBar" class="backgroundBar"></div></li>
+                    <li class="detailData"><label class="detaillabel">Sp. Atk</label><label class="detailValue">65</label><div id="spaBar" class="backgroundBar"></div></li>
+                    <li class="detailData"><label class="detaillabel">Sp. Def</label><label class="detailValue">65</label><div id="spdBar" class="backgroundBar"></div></li>
+                    <li class="detailData"><label class="detaillabel">Speed</label><label class="detailValue">45</label><div id="speedBar" class="backgroundBar"></div></li>
+                    <li class="detailData"><label class="detaillabel">Total</label><label class="detailValue">367</label><div id="totalBar" class="backgroundBar"></div></li>
+                </ul>
+            </div>
+            <div id="evolution" class="detailsContainer">
+                <h2>evolution</h2>
+            </div>
+            <div id="moves" class="detailsContainer">
+                <h2>moves</h2>
+            </div>            
+        </div>
+    </section>
+
+    <script src="./assets/js/pokemon-model.js"></script>
+    <script src="./assets/js/poke-api.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
