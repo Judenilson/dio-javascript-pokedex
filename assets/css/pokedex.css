@@ -1,3 +1,5 @@
+@import url(./global.css);
+
 .pokemons{
     list-style: none;
     padding: 0;
