@@ -58,20 +58,3 @@ pokeApi.getPokemonDetails = (id = 1) => {
         .then((pokemons) => convertPokeApiDetailToPokemon(pokemons)) //transformando a lista em uma lista de busca do detalhe, pois o map vai iterar sobre a url de cada pokemon        
         .then((getPokemonsDetail) => getPokemonsDetail)
 }
-
-// number;
-// name;
-// types;
-// types = [];
-// photo;
-// ability;
-// abilities = [];
-// weight;
-// height;
-// hp;
-// attack;
-// defense;
-// specialAttack;
-// specialDefense;
-// speed;
-// total;

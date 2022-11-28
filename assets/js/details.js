@@ -21,7 +21,7 @@ function loadPokemonItens(id) {
             <ul class="detailList">
                 <li class="detailData"><label class="detaillabel">Height</label><label class="detailValue">${pokemon.height} cm</label></li>                    
                 <li class="detailData"><label class="detaillabel">Weight</label><label class="detailValue">${pokemon.weight} kg</label></li>                    
-                <li class="detailData"><label class="detaillabel">Abilities</label><label class="detailValue"> ${pokemon.abilities.map((ability) => ability).join(', ') }</label></li>
+                <li class="detailData"><label class="detaillabel">Abilities</label><label class="detailValue"> ${pokemon.abilities.map((ability) => ability).join(', ')}</label></li>
             </ul>
         `);
 
@@ -38,7 +38,7 @@ function loadPokemonItens(id) {
         `);
 
         // const hp = toString(pokemon.hp) + 'px';
-        
+
         const hpBar = document.getElementById('hpBar');
         const atkBar = document.getElementById('atkBar');
         const defBar = document.getElementById('defBar');
@@ -46,30 +46,50 @@ function loadPokemonItens(id) {
         const spdBar = document.getElementById('spdBar');
         const speedBar = document.getElementById('speedBar');
         const totalBar = document.getElementById('totalBar');
-        hpBar.style.width = pokemon.hp + '%';
-        if (pokemon.hp < 70){hpBar.style.backgroundColor = '#EE0'}
-        if (pokemon.hp < 50){hpBar.style.backgroundColor = '#F00'}
-        atkBar.style.width = pokemon.attack + '%'
-        if (pokemon.attack < 70){atkBar.style.backgroundColor = '#EE0'}
-        if (pokemon.attack < 50){atkBar.style.backgroundColor = '#F00'}
-        defBar.style.width = pokemon.defense + '%'
-        if (pokemon.defense < 70){defBar.style.backgroundColor = '#EE0'}
-        if (pokemon.defense < 50){defBar.style.backgroundColor = '#F00'}
-        spaBar.style.width = pokemon.specialAttack + '%'
-        if (pokemon.specialAttack < 70){spaBar.style.backgroundColor = '#EE0'}
-        if (pokemon.specialAttack < 50){spaBar.style.backgroundColor = '#F00'}
-        spdBar.style.width = pokemon.specialDefense + '%'
-        if (pokemon.specialDefense < 70){spdBar.style.backgroundColor = '#EE0'}
-        if (pokemon.specialDefense < 50){spdBar.style.backgroundColor = '#F00'}
-        speedBar.style.width = pokemon.speed + '%'
-        if (pokemon.speed < 70){speedBar.style.backgroundColor = '#EE0'}
-        if (pokemon.speed < 50){speedBar.style.backgroundColor = '#F00'}
-        const total = pokemon.total/6;
-        totalBar.style.width = total + '%'
-        if (total < 70){totalBar.style.backgroundColor = '#EE0'}
-        if (total < 50){totalBar.style.backgroundColor = '#F00'}
 
-        
+        if (pokemon.hp >= 100) {
+            hpBar.style.width = '100%';
+        } else { hpBar.style.width = pokemon.hp + '%'; }
+        if (pokemon.hp < 70) { hpBar.style.backgroundColor = '#EE0' }
+        if (pokemon.hp < 50) { hpBar.style.backgroundColor = '#F00' }
+
+        if (pokemon.attack >= 100) {
+            atkBar.style.width = '100%';
+        } else { atkBar.style.width = pokemon.attack + '%'; }
+        if (pokemon.attack < 70) { atkBar.style.backgroundColor = '#EE0' }
+        if (pokemon.attack < 50) { atkBar.style.backgroundColor = '#F00' }
+
+        if (pokemon.defense >= 100) {
+            defBar.style.width = '100%';
+        } else { defBar.style.width = pokemon.defense + '%'; }
+        if (pokemon.defense < 70) { defBar.style.backgroundColor = '#EE0' }
+        if (pokemon.defense < 50) { defBar.style.backgroundColor = '#F00' }
+
+        if (pokemon.specialAttack >= 100) {
+            spaBar.style.width = '100%';
+        } else { spaBar.style.width = pokemon.specialAttack + '%'; }
+        if (pokemon.specialAttack < 70) { spaBar.style.backgroundColor = '#EE0' }
+        if (pokemon.specialAttack < 50) { spaBar.style.backgroundColor = '#F00' }
+
+        if (pokemon.specialDefense >= 100) {
+            spdBar.style.width = '100%';
+        } else { spdBar.style.width = pokemon.specialDefense + '%'; }
+        if (pokemon.specialDefense < 70) { spdBar.style.backgroundColor = '#EE0' }
+        if (pokemon.specialDefense < 50) { spdBar.style.backgroundColor = '#F00' }
+
+        if (pokemon.speed >= 100) {
+            speedBar.style.width = '100%';
+        } else { speedBar.style.width = pokemon.speed + '%'; }
+        if (pokemon.speed < 70) { speedBar.style.backgroundColor = '#EE0' }
+        if (pokemon.speed < 50) { speedBar.style.backgroundColor = '#F00' }
+
+        const total = pokemon.total / 6;
+        if (total >= 100) {
+            totalBar.style.width = '100%';
+        } else { totalBar.style.width = total + '%'; }
+        if (total < 70) { totalBar.style.backgroundColor = '#EE0' }
+        if (total < 50) { totalBar.style.backgroundColor = '#F00' }
+
         document.getElementById('moves').innerHTML = (`
             <ul>
                 ${pokemon.moves.map((move) => `<li>${move}</li>`).join('')}

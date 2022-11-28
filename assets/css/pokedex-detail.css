@@ -255,6 +255,12 @@
     height: 5px;
     width: 0%;
 }
+#evolution{
+    max-width: 600px;
+    padding: 10px;
+    text-align: center;
+    color: #999;
+}
 #moves{
     max-width: 600px;
     padding: 0;
