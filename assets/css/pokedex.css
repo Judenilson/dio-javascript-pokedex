@@ -47,9 +47,10 @@
     border-radius: 1rem;    
 }
 .pokemon .detail img{
+    margin-top: -25px;
     max-width: 60%;
     align-self: flex-end;
-    height: 70px;
+    height: 100px;
 }
 .pagination{
     display: flex;
