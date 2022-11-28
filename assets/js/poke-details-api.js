@@ -36,7 +36,12 @@ function convertPokeApiDetailToPokemon(pokeDetail){
     pokemon.specialDefense = stats[4];
     pokemon.speed = stats[5];
     pokemon.total = total;
-    
+
+    const moves = pokeDetail.moves.map((movesSlot) => movesSlot.move.name)
+    const [move] = moves
+    pokemon.moves = moves
+    pokemon.move = move
+
     return pokemon
 }
 

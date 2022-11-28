@@ -68,7 +68,14 @@ function loadPokemonItens(id) {
         totalBar.style.width = total + '%'
         if (total < 70){totalBar.style.backgroundColor = '#EE0'}
         if (total < 50){totalBar.style.backgroundColor = '#F00'}
-    })
+
+        
+        document.getElementById('moves').innerHTML = (`
+            <ul>
+                ${pokemon.moves.map((move) => `<li>${move}</li>`).join('')}
+            </ul
+        `);
+    });
 }
 
 loadPokemonItens(id)
