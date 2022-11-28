@@ -2,7 +2,7 @@ const pokeApi = {}
 
 function convertPokeApiDetailToPokemon(pokeDetail){
     const pokemon = new Pokemon()
-    pokemon.number = pokeDetail.held_itens.id
+    pokemon.number = pokeDetail.id
     pokemon.name = pokeDetail.name
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
@@ -11,7 +11,22 @@ function convertPokeApiDetailToPokemon(pokeDetail){
     pokemon.types = types
     pokemon.type = type
     
-    pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
+    pokemon.photo = pokeDetail.sprites.other.home.front_default
+
+    const abilities = pokeDetail.abilities.map((abilitiesSlot) => abilitiesSlot.ability.name)
+    const [ability] = abilities
+    pokemon.abilities = abilities
+    pokemon.ability = ability
+    
+    pokemon.weight = pokeDetail.weight;
+    pokemon.height = pokeDetail.height;
+
+    // const stats = pokeDetail.stats.map((statsSlot) => statsSlot.stats.base_stat)
+    // const [stat] = stats
+    // pokemon.stats = stats
+    // pokemon.stat = stat
+    // console.log(stats)
+    // pokemon.total += stat.map();
 
     return pokemon
 }
@@ -24,10 +39,9 @@ pokeApi.getPokemonDetail = (pokemon) => {
 pokeApi.getPokemonDetails = (id = 1) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`
     return fetch(url) //buscando na nossa lista de pokemons
-        .then((response) => response.json()) //pegando a lista de pokemons (response) e convertendo para json        
-        .then((jsonBody) => {console.log(jsonBody); jsonBody.results}) //limpando o json p ficar só os resultados de fato, pq a api manda mais coisas, tipo paginação e tal.
-        .then((pokemons) => convertPokeApiDetailToPokemon(pokemons)) //transformando a lista em uma lista de busca do detalhe, pois o map vai iterar sobre a url de cada pokemon
-        .then((detailRequests) => Promise.all(detailRequests)) //esperando todas as requisições terminarem
+        .then((response) => response.json()) //pegando a lista de pokemons (response) e convertendo para json    
+        // .then((poke) => console.log(poke))
+        .then((pokemons) => convertPokeApiDetailToPokemon(pokemons)) //transformando a lista em uma lista de busca do detalhe, pois o map vai iterar sobre a url de cada pokemon        
         .then((getPokemonsDetail) => getPokemonsDetail)
 }
 

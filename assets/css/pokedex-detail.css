@@ -40,7 +40,7 @@
     font-size: .9rem;
 }
 
-.pokemon .name {
+.pokemon #name {
     color: #fff;
     margin: 0 0 0 1rem;
     text-transform: capitalize;
@@ -73,10 +73,10 @@
 }
 
 .pokemon .detail img {
-    margin: 1px auto;
+    margin: -70px auto;
     display: flex;
     justify-self: center;
-    max-width: 225px;
+    max-width: 300px;
     align-self: center;
 }
 
