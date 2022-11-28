@@ -18,16 +18,25 @@ function convertPokeApiDetailToPokemon(pokeDetail){
     pokemon.abilities = abilities
     pokemon.ability = ability
     
-    pokemon.weight = pokeDetail.weight;
+    pokemon.weight = pokeDetail.weight/1000;
     pokemon.height = pokeDetail.height;
 
-    // const stats = pokeDetail.stats.map((statsSlot) => statsSlot.stats.base_stat)
-    // const [stat] = stats
-    // pokemon.stats = stats
-    // pokemon.stat = stat
-    // console.log(stats)
-    // pokemon.total += stat.map();
+    let total = 0;
+    const stats = [];
+    for (const [k, v] of Object.entries(pokeDetail.stats)){
+        stats.push(v.base_stat);
+        total += v.base_stat;
+    }
+    pokemon.stats = stats
 
+    pokemon.hp = stats[0];
+    pokemon.attack = stats[1];
+    pokemon.defense = stats[2];
+    pokemon.specialAttack = stats[3];
+    pokemon.specialDefense = stats[4];
+    pokemon.speed = stats[5];
+    pokemon.total = total;
+    
     return pokemon
 }
 

@@ -48,7 +48,7 @@
 }
 .pokemon .detail img{
     margin-top: -25px;
-    max-width: 60%;
+    max-height: 60%;
     align-self: flex-end;
     height: 100px;    
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
